@@ -1,0 +1,22 @@
+# Dependencias (se reinstalan con "npm install")
+/node_modules
+
+# Archivos generados por Next.js
+/.next/
+/out/
+/build
+
+# CLAVES SECRETAS: nunca subir a GitHub
+.env
+.env.local
+.env.*.local
+*service-account*.json
+
+# Netlify
+.netlify
+
+# Sistema
+.DS_Store
+Thumbs.db
+npm-debug.log*
+*.log

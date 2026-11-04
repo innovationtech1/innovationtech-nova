@@ -1,0 +1,119 @@
+/* ─────────────────────────────────────────────
+   PALETA DE MARCA: InnovationTECH
+   Para cambiar un color en todo el sitio, cámbialo aquí.
+   ───────────────────────────────────────────── */
+:root {
+  --azul-noche: #050b1f;      /* fondo principal */
+  --azul-marino: #0a1638;     /* fondo de secciones */
+  --azul-tarjeta: #101f4a;    /* tarjetas */
+  --azul-borde: #1e3270;      /* bordes sutiles */
+  --rojo: #e63946;            /* color de acento */
+  --rojo-brillo: #ff4d5a;     /* rojo al pasar el mouse */
+  --texto: #f1f5ff;           /* texto principal */
+  --texto-suave: #a5b1d1;     /* texto secundario */
+
+  --radio: 16px;
+  --ancho-max: 1120px;
+  --sombra-roja: 0 0 32px rgba(230, 57, 70, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px; /* para que el menú fijo no tape los títulos */
+}
+
+body {
+  margin: 0;
+  background: var(--azul-noche);
+  color: var(--texto);
+  font-family: var(--fuente-texto), system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fuente-titulos), system-ui, sans-serif;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--rojo);
+  outline-offset: 3px;
+}
+
+/* Contenedor centrado reutilizable */
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Botones */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px; /* tamaño cómodo para el dedo */
+  padding: 0 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.boton-primario {
+  background: var(--rojo);
+  color: #fff;
+}
+
+.boton-primario:hover {
+  background: var(--rojo-brillo);
+  box-shadow: var(--sombra-roja);
+  transform: translateY(-1px);
+}
+
+.boton-secundario {
+  border-color: var(--azul-borde);
+  color: var(--texto);
+  background: rgba(16, 31, 74, 0.5);
+}
+
+.boton-secundario:hover {
+  border-color: var(--rojo);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
