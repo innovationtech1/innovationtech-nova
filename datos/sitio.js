@@ -152,9 +152,115 @@ export const planes = [
   },
 ];
 
+// Condiciones comerciales (propuestas el 4 nov 2026; revisar y ajustar)
+export const condiciones = {
+  contrato:
+    "Planes mensuales sin contrato a largo plazo: se paga mes a mes por adelantado y se puede cancelar avisando con 15 días antes del siguiente cobro. Se puede cambiar de plan en cualquier momento a partir del siguiente mes.",
+  proyectos:
+    "Proyectos de una sola vez (logo, identidad de marca, sitio web): 50% de anticipo para empezar y 50% al entregar. Videos sueltos o paquetes de video: pago completo por adelantado.",
+  formasDePago: [
+    "Zelle",
+    "Transferencia bancaria",
+    "Tarjeta de crédito o débito mediante un link de pago seguro",
+  ],
+  descuentos: [
+    "10% de descuento al pagar 3 meses de un plan por adelantado",
+    "Primera consulta de 30 minutos sin costo, con un diagnóstico de tu presencia digital",
+  ],
+};
+
+// Preguntas frecuentes (propuestas el 4 nov 2026; revisar y ajustar)
+export const preguntasFrecuentes = [
+  {
+    p: "¿Cómo empiezo a trabajar con InnovationTECH?",
+    r: "Agenda tu primera consulta de 30 minutos sin costo por correo, teléfono o WhatsApp. Revisamos tu negocio, te damos un diagnóstico de tu presencia digital y te enviamos una propuesta. Al aceptarla y hacer el primer pago, empezamos.",
+  },
+  {
+    p: "¿Qué necesito para empezar?",
+    r: "Información básica de tu negocio, tu logo y fotos si ya los tienes, y acceso a tus redes sociales. Si te falta algo, te ayudamos a prepararlo.",
+  },
+  {
+    p: "¿Atienden fuera de San Antonio?",
+    r: "Sí. Trabajamos 100% en línea, así que atendemos a negocios en San Antonio y en cualquier otro lugar.",
+  },
+  {
+    p: "¿En qué idiomas trabajan?",
+    r: "En español e inglés. También podemos crear tu contenido en los dos idiomas.",
+  },
+  {
+    p: "¿Necesito tener redes sociales para contratar?",
+    r: "No. Si todavía no tienes, te ayudamos a crear y configurar tus cuentas al empezar.",
+  },
+  {
+    p: "¿El precio de los planes incluye el dinero de los anuncios?",
+    r: "No. El presupuesto de anuncios se paga directamente a Meta (Facebook e Instagram) y lo decides tú. Nuestro precio cubre la estrategia, la creación y el manejo de las campañas.",
+  },
+  {
+    p: "¿Puedo cambiar de plan o cancelar?",
+    r: "Sí. Puedes cambiar de plan a partir del siguiente mes. Para cancelar, avísanos 15 días antes del siguiente cobro. No hay contrato a largo plazo.",
+  },
+  {
+    p: "¿Cuántas revisiones incluyen?",
+    r: "Los logos incluyen 3 propuestas y 2 rondas de cambios. Cada video incluye 2 rondas de cambios. Los cambios adicionales se cotizan aparte.",
+  },
+  {
+    p: "¿Garantizan cierto número de seguidores o ventas?",
+    r: "No prometemos cifras exactas, porque los resultados dependen de muchos factores. Sí te garantizamos trabajo profesional, una estrategia clara y un reporte mensual para que veas el avance.",
+  },
+  {
+    p: "¿De quién son los diseños, el logo y los archivos?",
+    r: "Son tuyos. Al terminar de pagar el proyecto te entregamos los archivos finales y todos los derechos de uso.",
+  },
+  {
+    p: "¿Hacen reembolsos?",
+    r: "El anticipo de un proyecto no se reembolsa una vez que empezamos a trabajar. Los meses de un plan ya pagados tampoco se reembolsan, pero el servicio continúa hasta terminar ese mes.",
+  },
+  {
+    p: "¿Quién paga el dominio y el hospedaje de mi sitio web?",
+    r: "Se pagan aparte y quedan a tu nombre. Te ayudamos a elegir opciones económicas y a configurarlas.",
+  },
+];
+
+// Personalidad de NOVA (propuesta el 4 nov 2026)
+export const personalidadNova = {
+  trato: "Habla de \"tú\", con un tono cercano, profesional y positivo.",
+  alContratar:
+    "Cuando alguien quiera contratar o pida una cotización, invítalo a agendar la primera consulta de 30 minutos sin costo por WhatsApp, teléfono o correo.",
+  nuncaPrometer: [
+    "Resultados garantizados (número de seguidores, ventas o clientes)",
+    "Descuentos, promociones o precios que no estén en la información del negocio",
+    "Fechas exactas de entrega: solo los rangos de tiempo publicados",
+    "Servicios que la agencia no ofrece",
+  ],
+};
+
 export const portafolio = [
-  // EJEMPLO: reemplazar con trabajos reales (imagen en /public/portafolio)
-  { id: "p1", titulo: "Proyecto de ejemplo 1", servicio: "Identidad de marca", descripcion: "Logo y manual de marca para un negocio local." },
-  { id: "p2", titulo: "Proyecto de ejemplo 2", servicio: "Desarrollo web", descripcion: "Sitio web moderno adaptado a celular." },
-  { id: "p3", titulo: "Proyecto de ejemplo 3", servicio: "Edición de video", descripcion: "Serie de reels promocionales." },
+  // Trabajos reales. Imágenes en /public/portafolio (JPG ligero, ~960 px de ancho)
+  {
+    id: "studio",
+    titulo: "InnovationTECH Studio",
+    servicio: "Desarrollo web · App con IA",
+    descripcion:
+      "Aplicación web propia que crea textos, imágenes y videos de marketing con inteligencia artificial: publicaciones, calendario de contenido de 30 días y guiones para reels. Funciona desde el celular y se instala como app.",
+    imagen: "/portafolio/innovationtech-studio.jpg",
+    enlace: "https://innovationtech-studio.vercel.app/",
+  },
+  {
+    id: "tortas-tortuga",
+    titulo: "Tortas Tortuga",
+    servicio: "App web (PWA) · Pedidos en línea",
+    descripcion:
+      "App de pedidos para un negocio de tortas en San Antonio: menú con fotos y precios, personalización de cada torta, pedidos para recoger en la unidad móvil o a domicilio con ubicación GPS, y panel de cajero. Bilingüe y se instala en el celular como app.",
+    imagen: "/portafolio/tortas-tortuga.jpg",
+    enlace: "https://innovationtech1.github.io/tortastortugav8/ordenar.html",
+  },
+  {
+    id: "onroute",
+    titulo: "OnRoute",
+    servicio: "App moderna · Plataforma de comida",
+    descripcion:
+      "Plataforma que conecta clientes, food trucks y restaurantes, y repartidores: los clientes piden directo sin comisiones de apps de delivery, los negocios reciben pedidos y manejan su menú y promociones, y los repartidores ganan entregando en sus propios horarios.",
+    imagen: "/portafolio/onroute.jpg",
+    enlace: "https://getonroute.app/",
+  },
 ];

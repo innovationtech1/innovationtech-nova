@@ -32,7 +32,7 @@ Construir y operar la página web de InnovationTECH con el chat de **NOVA** **si
 | Login del administrador | **Firebase Authentication (gratis)** | Correo y contraseña. Hasta 50,000 usuarios gratis (solo serás tú). |
 | Construcción | **En tu computadora (localhost)** | Construir y probar en tu propia computadora no cuesta nada. |
 | Publicación | **Netlify, plan Free** | A diferencia de Vercel Hobby, su plan gratis permite sitios de negocio. Soporta Next.js 16. Si pasas el límite, **pausa** el sitio en vez de cobrarte. |
-| Código | **GitHub (gratis)**, repositorio privado | Guarda tu código y conecta con Netlify. |
+| Código | **GitHub (gratis)**, repositorio **público** `innovationtech1/innovationtech-nova` (cambiado de privado a público por decisión del dueño, 4 nov 2026) | Guarda tu código y conecta con Netlify. Al ser público, **nunca** se suben claves: van solo en `.env.local` y en Netlify. |
 | Dirección web | **`innovationtech.netlify.app`** (o similar, gratis) | Un dominio propio (.com) cuesta ~$12-20 al año. Es **opcional** y se deja para después. |
 
 ### Lo que cambia por usar planes gratis (tienes que saberlo)
@@ -162,7 +162,7 @@ Cada fase termina con algo que puedes **ver y probar**. No avanzamos sin tu apro
 - **Resultado:** cambias precios o servicios sin tocar código, y eliges qué IA usa NOVA.
 
 ### Fase 5: Publicar gratis en Netlify
-- Subir el código a un repositorio **privado** en GitHub (`.env.local` queda fuera).
+- ✅ Código subido a GitHub (repositorio público; `.env.local` queda fuera).
 - Conectar GitHub con Netlify y copiar las claves en la configuración de Netlify.
 - Reglas de seguridad de Firestore: bloquear todo acceso directo desde el navegador.
 - Pruebas en varios celulares.
@@ -184,7 +184,7 @@ Cada fase termina con algo que puedes **ver y probar**. No avanzamos sin tu apro
 | 1 | **Cuenta de Google** (puede ser tu Gmail) | accounts.google.com | La usan Firebase y Gemini |
 | 2 | **Firebase**, proyecto en plan **Spark** | console.firebase.google.com | Firestore + login del admin |
 | 3 | **Google AI Studio** | aistudio.google.com | Crear la clave de Gemini (chat + huellas) |
-| 4 | **GitHub** | github.com | Guardar el código (repositorio privado) |
+| 4 | **GitHub** | github.com | Guardar el código (repositorio público) |
 | 5 | **Netlify**, plan **Free** (puedes entrar con GitHub) | netlify.com | Publicar la página |
 
 > Al crear la clave en AI Studio **no** hagas clic en "Set up billing" ni en "Upgrade". Así la clave se queda en el plan gratuito.

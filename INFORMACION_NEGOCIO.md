@@ -73,24 +73,14 @@ Para cada servicio: qué es, qué incluye y cuánto tarda.
 - **Incluye:** manejo de hasta 5 redes sociales; 20 publicaciones al mes; 4 videos cortos editados al mes; campañas de anuncios continuas con pruebas y ajustes; llamada de estrategia mensual; reporte mensual detallado.
 - **Ideal para:** marcas que quieren dominar su mercado.
 
-- **¿Hay contrato mínimo o permanencia?:** [PENDIENTE]
-- **Formas de pago:** [PENDIENTE]
-- **¿Ofrecen descuentos o promociones?:** [PENDIENTE]
+- **¿Hay contrato mínimo o permanencia?:** No. Planes mes a mes, pagados por adelantado; se cancelan avisando 15 días antes del siguiente cobro. Proyectos de una sola vez (logo, identidad, web): 50% de anticipo y 50% al entregar. Videos: pago completo por adelantado.
+- **Formas de pago:** Zelle; transferencia bancaria; tarjeta de crédito o débito con link de pago seguro (requiere una cuenta gratuita de Square o Stripe, que cobran una comisión por cada pago con tarjeta).
+- **¿Ofrecen descuentos o promociones?:** 10% al pagar 3 meses de un plan por adelantado. Primera consulta de 30 minutos sin costo, con diagnóstico de la presencia digital.
 
 ## 5. Preguntas frecuentes
 Escribe entre 10 y 20. Algunas ideas: ¿Cómo empiezo? ¿Cuánto tarda un logo? ¿Puedo cambiar de plan? ¿Hacen reembolsos? ¿Necesito tener redes sociales? ¿Cuántas revisiones incluye?
 
-1. **P:** [ ]
-   **R:** [ ]
-2. **P:** [ ]
-   **R:** [ ]
-3. **P:** [ ]
-   **R:** [ ]
-4. **P:** [ ]
-   **R:** [ ]
-5. **P:** [ ]
-   **R:** [ ]
-(agrega más copiando el formato)
+✅ 12 preguntas propuestas el 4 nov 2026. Están completas en `datos/sitio.js` (sección `preguntasFrecuentes`): cómo empezar, qué se necesita, atención fuera de San Antonio, idiomas, si hace falta tener redes, presupuesto de anuncios, cambiar de plan o cancelar, revisiones, resultados garantizados, propiedad de los archivos, reembolsos, y dominio y hospedaje.
 
 ## 6. Portafolio (de 3 a 6 trabajos)
 Las imágenes guárdalas en una carpeta llamada `portafolio` dentro de `C:\innovationTECH1`.
@@ -109,6 +99,6 @@ Las imágenes guárdalas en una carpeta llamada `portafolio` dentro de `C:\innov
 - **Tipo de letra (si tienes uno):** [ ]
 
 ## 8. Personalidad de NOVA
-- **¿Cómo debe tratar a los clientes?:** [ej. de "tú" / de "usted"]
-- **¿Qué debe hacer NOVA cuando alguien quiere contratar?:** [ej. pedir que escriba por WhatsApp, dar el correo...]
-- **¿Hay algo que NOVA NUNCA debe decir o prometer?:** [ej. descuentos, fechas exactas...]
+- **¿Cómo debe tratar a los clientes?:** de "tú", cercana, profesional y positiva.
+- **¿Qué debe hacer NOVA cuando alguien quiere contratar?:** invitarlo a agendar la consulta gratis de 30 minutos por WhatsApp, teléfono o correo.
+- **¿Hay algo que NOVA NUNCA debe decir o prometer?:** resultados garantizados (seguidores, ventas); descuentos o precios que no estén publicados; fechas exactas (solo los rangos publicados); servicios que no ofrecemos.

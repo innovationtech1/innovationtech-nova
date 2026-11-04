@@ -2,6 +2,7 @@ import Encabezado from "@/components/Encabezado";
 import ChatNova from "@/components/ChatNova";
 import Icono from "@/components/Icono";
 import { negocio, servicios, planes, portafolio } from "@/datos/sitio";
+import Image from "next/image";
 import estilos from "./page.module.css";
 
 export default function Inicio() {
@@ -106,13 +107,34 @@ export default function Inicio() {
             <div className={estilos.gridPortafolio}>
               {portafolio.map((t) => (
                 <article key={t.id} className={estilos.trabajo}>
-                  <div className={estilos.imagenTrabajo} aria-hidden="true">
-                    <span>{t.servicio}</span>
-                  </div>
+                  {t.imagen ? (
+                    <div className={estilos.fotoTrabajo}>
+                      <Image
+                        src={t.imagen}
+                        alt={`Captura de ${t.titulo}`}
+                        fill
+                        sizes="(min-width: 700px) 33vw, 100vw"
+                      />
+                    </div>
+                  ) : (
+                    <div className={estilos.imagenTrabajo} aria-hidden="true">
+                      <span>{t.servicio}</span>
+                    </div>
+                  )}
                   <div className={estilos.textoTrabajo}>
                     <p className={estilos.servicioTrabajo}>{t.servicio}</p>
                     <h3>{t.titulo}</h3>
                     <p>{t.descripcion}</p>
+                    {t.enlace && (
+                      <a
+                        href={t.enlace}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={estilos.enlaceTrabajo}
+                      >
+                        Ver proyecto →
+                      </a>
+                    )}
                   </div>
                 </article>
               ))}

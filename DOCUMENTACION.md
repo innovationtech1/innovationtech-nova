@@ -57,7 +57,7 @@ NOVA es una asistente virtual que responde preguntas de clientes **usando solo l
 | Huellas (embeddings) | Google `gemini-embedding-2`, 768 dimensiones | Plan gratuito de Gemini API |
 | Base de datos | Firebase Firestore, base `(default)` | Spark (gratis) |
 | Login del admin | Firebase Authentication (correo/contraseña) | Spark (gratis) |
-| Código | GitHub, repositorio privado | Gratis |
+| Código | GitHub, repositorio público (`innovationtech1/innovationtech-nova`) | Gratis |
 | Publicación | Netlify | Free |
 
 ---

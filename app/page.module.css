@@ -275,8 +275,29 @@
   opacity: 0.6;
 }
 
+/* Foto real del trabajo */
+.fotoTrabajo {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--azul-marino);
+  border-bottom: 1px solid var(--azul-borde);
+}
+
+.fotoTrabajo img {
+  object-fit: cover;
+  object-position: top;
+}
+
 .textoTrabajo {
   padding: 20px 22px 24px;
+}
+
+.enlaceTrabajo {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 6px 0;
+  font-weight: 600;
+  color: var(--rojo);
 }
 
 .textoTrabajo h3 {
