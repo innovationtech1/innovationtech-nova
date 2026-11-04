@@ -348,7 +348,7 @@
 
 /* ═════════ PIE ═════════ */
 .pie {
-  padding: 28px 0;
+  padding: 28px 0 100px; /* espacio extra para que la burbuja de NOVA no tape el texto */
   text-align: center;
   font-size: 0.9rem;
   color: var(--texto-suave);

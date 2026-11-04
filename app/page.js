@@ -1,4 +1,5 @@
 import Encabezado from "@/components/Encabezado";
+import ChatNova from "@/components/ChatNova";
 import Icono from "@/components/Icono";
 import { negocio, servicios, planes, portafolio } from "@/datos/sitio";
 import estilos from "./page.module.css";
@@ -159,6 +160,8 @@ export default function Inicio() {
           </p>
         </div>
       </footer>
+
+      <ChatNova />
     </>
   );
 }

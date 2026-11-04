@@ -244,3 +244,4 @@ Se guardan en `.env.local` (en tu computadora) y en **Netlify → Site configura
 ## 12. Historial de cambios del documento
 - **2026-11-03:** primera versión. Cambio a stack 100% gratuito (Gemini + Firestore Spark + Netlify Free).
 - **2026-11-03:** se agrega la opción de cambiar NOVA a Claude desde el panel (de pago, crédito desde $5), con Gemini por defecto y respaldo automático a Gemini.
+- **2026-11-04:** Fase 2 probada con la IA real. Datos de contacto reales en `datos/sitio.js`. Si un modelo de Gemini no empieza a responder en 15 segundos, NOVA prueba el siguiente modelo gratuito. Si ninguno responde, muestra el mensaje de contacto (el cliente nunca se queda esperando sin respuesta).

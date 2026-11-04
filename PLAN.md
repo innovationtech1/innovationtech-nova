@@ -1,8 +1,12 @@
 # Plan del proyecto: NOVA, asistente virtual de InnovationTECH
 
 > **Versión 2: plan de costo cero.** Reemplaza al plan anterior (que usaba Claude y Vercel Pro).
-> Estado: **pendiente de aprobación.** Todavía no hay código escrito.
-> Fecha: 3 de noviembre de 2026
+> Estado: **plan aprobado.**
+> - Fase 0: en curso (el dueño crea las cuentas y llena `INFORMACION_NEGOCIO.md`)
+> - Fase 1: ✅ terminada (página de inicio)
+> - Fase 2: ✅ terminada y probada con la IA real (4 nov 2026). NOVA responde en el chat y no inventa precios. Si Google está saturado (error 503), prueba solo otros modelos gratuitos y, si nada responde, muestra el mensaje de contacto.
+> - Siguiente: llenar `INFORMACION_NEGOCIO.md` (Fase 0) y crear el proyecto de Firebase en plan Spark para la Fase 3.
+> Fecha: 4 de noviembre de 2026
 > Documentación técnica de la app: ver `DOCUMENTACION.md`.
 
 ---
