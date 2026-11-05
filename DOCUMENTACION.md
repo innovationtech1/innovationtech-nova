@@ -266,7 +266,7 @@ Se guardan en `.env.local` (en tu computadora) y en **Netlify → Site configura
 ---
 
 ## 12. Historial de cambios del documento
-- **2026-11-05:** primera publicación en `innovationtech1-nova.netlify.app`. Se agrega `.nvmrc` (Node 24): con una versión vieja de Node, Netlify no podía cargar `firebase-admin/auth` y el chat fallaba (error 500).
+- **2026-11-05:** primera publicación en `innovationtech1-nova.netlify.app`. El chat fallaba en Netlify (error 500) porque `firebase-admin/auth` no carga ahí (ERR_REQUIRE_ESM con la librería `jose`, aun con Node 24). Solución: la sesión del administrador ahora se verifica en `lib/verificarToken.js` (firma con las llaves públicas de Google + revisión de cuenta activa con Firebase), sin `firebase-admin/auth`. Se fija Node 24 con `.nvmrc`. El chat ahora muestra un aviso con el contacto si el servidor falla, en vez de quedarse con los puntitos.
 - **2026-11-05:** preparación de la Fase 5: límite de mensajes en Firestore, tiempo total de respuesta de 48 s (Netlify corta a los 60 s), se detiene la IA si el visitante cierra el chat y la IP real se lee del encabezado de Netlify.
 - **2026-11-03:** primera versión. Cambio a stack 100% gratuito (Gemini + Firestore Spark + Netlify Free).
 - **2026-11-03:** se agrega la opción de cambiar NOVA a Claude desde el panel (de pago, crédito desde $5), con Gemini por defecto y respaldo automático a Gemini.

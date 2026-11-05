@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import estilos from "./ChatNova.module.css";
+import { negocio } from "@/datos/sitio";
 
 const SALUDO = {
   rol: "nova",
@@ -55,6 +56,10 @@ export default function ChatNova() {
         body: JSON.stringify({ mensajes: historial.slice(1) }),
       });
 
+      // Un fallo interno del servidor (500, 502…) no trae un mensaje de NOVA: se avisa con el contacto
+      if (!respuesta.ok && respuesta.status >= 500 && respuesta.status !== 503) {
+        throw new Error(`Servidor ${respuesta.status}`);
+      }
       if (!respuesta.body) throw new Error("Sin respuesta");
 
       const lector = respuesta.body.getReader();
@@ -68,10 +73,18 @@ export default function ChatNova() {
         const parcial = acumulado;
         setMensajes((previos) => [...previos.slice(0, -1), { rol: "nova", texto: parcial }]);
       }
-    } catch {
+      // Si la respuesta llegó vacía, no se dejan los puntitos para siempre
+      if (!acumulado.trim()) throw new Error("Respuesta vacía");
+    } catch (error) {
+      const sinInternet = error instanceof TypeError; // fetch falla así cuando no hay conexión
       setMensajes((previos) => [
         ...previos.slice(0, -1),
-        { rol: "nova", texto: "No pude conectarme. Revisa tu internet e intenta de nuevo." },
+        {
+          rol: "nova",
+          texto: sinInternet
+            ? "No pude conectarme. Revisa tu internet e intenta de nuevo."
+            : `Tuve un problema para responder. Intenta de nuevo en un momento o escríbenos a ${negocio.correo} o llámanos al ${negocio.telefono}.`,
+        },
       ]);
     } finally {
       setEsperando(false);
