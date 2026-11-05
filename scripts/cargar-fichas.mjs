@@ -6,7 +6,7 @@
 // - Guarda cada ficha en la colección "conocimiento" de Firestore.
 // - Si una ficha ya existía, respeta si estaba activa u oculta.
 // - Borra las fichas creadas por este script que ya no existen en datos/sitio.js.
-//   (Las fichas creadas a mano en el panel, Fase 4, no se tocan.)
+// - Las fichas creadas o editadas en el panel (/admin) no se tocan.
 
 import { FieldValue } from "firebase-admin/firestore";
 import { crearFichas } from "../lib/fichas.js";
@@ -39,9 +39,13 @@ async function principal() {
   console.log(`Cargando ${fichas.length} fichas en Firestore…\n`);
 
   for (const [i, ficha] of fichas.entries()) {
-    const huella = await huellaConReintentos(ficha);
     const ref = coleccion.doc(ficha.id);
     const anterior = await ref.get();
+    if (anterior.exists && anterior.get("origen") === "panel") {
+      console.log(`↷ ${String(i + 1).padStart(2)}/${fichas.length}  ${ficha.titulo}  (editada en el panel: no se toca)`);
+      continue;
+    }
+    const huella = await huellaConReintentos(ficha);
 
     await ref.set({
       titulo: ficha.titulo,

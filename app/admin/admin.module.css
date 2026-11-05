@@ -1,0 +1,311 @@
+/* Panel de NOVA: pensado primero para celular */
+
+.centro {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+}
+
+.tarjetaLogin {
+  width: 100%;
+  max-width: 400px;
+  display: grid;
+  gap: 16px;
+  padding: 28px 22px;
+  border-radius: var(--radio);
+  background: var(--azul-tarjeta);
+  border: 1px solid var(--azul-borde);
+}
+
+.tarjetaLogin h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.etiqueta {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rojo);
+}
+
+.suave {
+  color: var(--texto-suave);
+  margin: 0;
+}
+
+.campo {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.campo input,
+.campo select,
+.campo textarea,
+.filtros input,
+.filtros select {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--azul-borde);
+  background: var(--azul-noche);
+  color: var(--texto);
+  font: inherit;
+  font-weight: 400;
+}
+
+.campo textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus,
+.filtros input:focus,
+.filtros select:focus {
+  outline: none;
+  border-color: var(--rojo);
+}
+
+.ayuda {
+  justify-self: end;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--texto-suave);
+}
+
+.casilla {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.casilla input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--rojo);
+}
+
+.error,
+.exito {
+  margin: 0 0 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+}
+
+.error {
+  background: rgba(230, 57, 70, 0.15);
+  border: 1px solid rgba(230, 57, 70, 0.5);
+}
+
+.exito {
+  background: rgba(46, 204, 113, 0.12);
+  border: 1px solid rgba(46, 204, 113, 0.45);
+}
+
+/* ── Estructura del panel ── */
+
+.panel {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+}
+
+.barra {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  background: var(--azul-noche);
+  border-bottom: 1px solid var(--azul-borde);
+}
+
+.correo {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  word-break: break-all;
+}
+
+.pestanas {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0 20px;
+}
+
+.pestanas button {
+  flex: 1;
+  min-height: 46px;
+  border-radius: 999px;
+  border: 1px solid var(--azul-borde);
+  background: transparent;
+  color: var(--texto);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pestanas button[aria-pressed="true"] {
+  background: var(--rojo);
+  border-color: var(--rojo);
+}
+
+.contenido h2 {
+  font-size: 1.3rem;
+}
+
+/* ── Fichas ── */
+
+.filtros {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+@media (min-width: 700px) {
+  .filtros {
+    grid-template-columns: 1fr 220px auto;
+  }
+}
+
+.lista {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.ficha {
+  padding: 16px 18px;
+  border-radius: var(--radio);
+  background: var(--azul-tarjeta);
+  border: 1px solid var(--azul-borde);
+}
+
+.ficha h3 {
+  margin: 8px 0 6px;
+  font-size: 1.05rem;
+}
+
+.oculta {
+  opacity: 0.6;
+  border-style: dashed;
+}
+
+.fichaCabecera {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(230, 57, 70, 0.15);
+  color: var(--rojo-brillo);
+}
+
+.chipOculta {
+  background: rgba(165, 177, 209, 0.15);
+  color: var(--texto-suave);
+}
+
+.extracto {
+  margin: 0 0 12px;
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+  white-space: pre-line;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.botonChico {
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--azul-borde);
+  background: transparent;
+  color: var(--texto);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botonChico:hover {
+  border-color: var(--rojo);
+}
+
+.peligro {
+  color: var(--rojo-brillo);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+/* ── Editor y Probar NOVA ── */
+
+.editor {
+  display: grid;
+  gap: 16px;
+  padding: 20px 18px;
+  border-radius: var(--radio);
+  background: var(--azul-tarjeta);
+  border: 1px solid var(--azul-borde);
+  margin-bottom: 16px;
+}
+
+.editor h2 {
+  margin: 0;
+}
+
+.resultado {
+  padding: 20px 18px;
+  border-radius: var(--radio);
+  background: var(--azul-marino);
+  border: 1px solid var(--azul-borde);
+}
+
+.resultado h3 {
+  margin-top: 18px;
+  font-size: 1rem;
+}
+
+.respuesta {
+  margin: 10px 0 0;
+  white-space: pre-line;
+}
+
+.fichasUsadas {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 4px;
+}

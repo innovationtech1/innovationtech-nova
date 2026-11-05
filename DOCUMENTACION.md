@@ -128,6 +128,13 @@ La búsqueda de fichas (pasos 2 y 3) **siempre** usa Gemini Embedding, sin impor
  Ves "Guardado ✓" ◄──
 ```
 
+**Cómo está hecho (Fase 4, parte 1):**
+- El login usa la API REST oficial de Firebase Auth (sin instalar el SDK web). La sesión se guarda en el navegador solo mientras la pestaña esté abierta y se renueva sola cada hora.
+- Cada llamada a `/api/admin/*` verifica el token en el servidor y que el correo esté en `ADMIN_EMAILS`.
+- Las fichas creadas o editadas en el panel quedan con `origen: "panel"`; `npm run cargar-fichas` ya no las toca.
+- Ocultar/mostrar no recalcula la huella (no gasta cuota de Gemini). Editar título o contenido sí.
+- **Ojo:** los textos y precios **visibles en la página** salen de `datos/sitio.js`. El panel cambia lo que **NOVA sabe**. Si cambias un precio en el panel, cámbialo también en la página (o pídeselo a Claude).
+
 Funciones del panel:
 - **Lista de fichas** con buscador y filtro por categoría.
 - **Crear / editar** una ficha: título, categoría, contenido y enlace opcional.
@@ -258,5 +265,6 @@ Se guardan en `.env.local` (en tu computadora) y en **Netlify → Site configura
 ## 12. Historial de cambios del documento
 - **2026-11-03:** primera versión. Cambio a stack 100% gratuito (Gemini + Firestore Spark + Netlify Free).
 - **2026-11-03:** se agrega la opción de cambiar NOVA a Claude desde el panel (de pago, crédito desde $5), con Gemini por defecto y respaldo automático a Gemini.
+- **2026-11-05:** Fase 4, parte 1: panel `/admin` con login, fichas y "Probar NOVA".
 - **2026-11-05:** Fase 3 terminada: 27 fichas en Firestore con huellas de `gemini-embedding-2` (768 números) y búsqueda "Plan B" en `lib/buscar.js`. Script `npm run cargar-fichas`. Portafolio con 3 trabajos reales.
 - **2026-11-04:** Fase 2 probada con la IA real. Datos de contacto reales en `datos/sitio.js`. Si un modelo de Gemini no empieza a responder en 15 segundos, NOVA prueba el siguiente modelo gratuito. Si ninguno responde, muestra el mensaje de contacto (el cliente nunca se queda esperando sin respuesta).

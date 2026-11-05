@@ -7,7 +7,8 @@
 > - Fase 2: ✅ terminada y probada con la IA real (4 nov 2026). NOVA responde en el chat y no inventa precios. Si Google está saturado (error 503), prueba solo otros modelos gratuitos y, si nada responde, muestra el mensaje de contacto.
 > - Información del negocio (Fase 0): ✅ completa (pendiente: links de redes sociales).
 > - Fase 3: ✅ terminada y probada (5 nov 2026). 27 fichas en Firestore (proyecto `innovationtech-nova`, base `(default)`, Standard, nam5, plan Spark). Búsqueda con el **Plan B** (similitud calculada en el servidor, sin índice vectorial). Si Firestore falla, NOVA usa `datos/sitio.js`.
-> - Siguiente: Fase 4 (panel de administrador).
+> - Fase 4, parte 1: ✅ panel `/admin` (login con Firebase Auth, fichas: crear/editar/ocultar/borrar con buscador y filtro, "Probar NOVA"). Probado por API; falta que el dueño entre con su contraseña.
+> - Siguiente: Fase 4, parte 2 ("Configuración de NOVA": elegir Gemini o Claude, opcional y de pago).
 > Fecha: 4 de noviembre de 2026
 > Documentación técnica de la app: ver `DOCUMENTACION.md`.
 
