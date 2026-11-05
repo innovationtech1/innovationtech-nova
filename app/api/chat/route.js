@@ -27,6 +27,9 @@ function respuestaTexto(texto, status = 200) {
 }
 
 function obtenerIp(request) {
+  // En Netlify la IP real del visitante llega en este encabezado
+  const netlify = request.headers.get("x-nf-client-connection-ip");
+  if (netlify) return netlify;
   const reenviada = request.headers.get("x-forwarded-for");
   return (reenviada ? reenviada.split(",")[0] : request.headers.get("x-real-ip")) || "local";
 }
@@ -73,7 +76,7 @@ export async function POST(request) {
 
   if (!iaDisponible()) return respuestaTexto(AVISOS.sinConfigurar, 503);
 
-  const limite = revisarLimite(obtenerIp(request));
+  const limite = await revisarLimite(obtenerIp(request));
   if (!limite.permitido) {
     return respuestaTexto(limite.motivo === "minuto" ? AVISOS.limiteMinuto : AVISOS.limiteDia, 429);
   }
@@ -94,22 +97,37 @@ export async function POST(request) {
   const generador = responder({ instrucciones, historial });
   const codificador = new TextEncoder();
 
+  // Se pide a la IA un pedazo a la vez, solo cuando el navegador está listo para recibirlo.
+  // Si el visitante cierra el chat, cancel() detiene a la IA para no gastar cuota.
+  let algoEnviado = false;
+  let cancelado = false;
   const flujo = new ReadableStream({
-    async start(controlador) {
-      let algoEnviado = false;
+    async pull(controlador) {
       try {
-        for await (const pedazo of generador) {
-          algoEnviado = true;
-          controlador.enqueue(codificador.encode(pedazo));
+        const { value, done } = await generador.next();
+        if (cancelado) return; // el visitante se fue mientras llegaba este pedazo
+        if (done) {
+          if (!algoEnviado) controlador.enqueue(codificador.encode(AVISOS.error));
+          controlador.close();
+          return;
         }
-        if (!algoEnviado) controlador.enqueue(codificador.encode(AVISOS.error));
+        algoEnviado = true;
+        controlador.enqueue(codificador.encode(value));
       } catch (error) {
+        if (cancelado) return;
         console.error("[NOVA] Error de la IA:", error?.status, error?.message);
         const aviso = esErrorDeCuota(error) ? AVISOS.cuotaAgotada : AVISOS.error;
-        controlador.enqueue(codificador.encode(algoEnviado ? `\n\n${aviso}` : aviso));
-      } finally {
-        controlador.close();
+        try {
+          controlador.enqueue(codificador.encode(algoEnviado ? `\n\n${aviso}` : aviso));
+          controlador.close();
+        } catch {
+          // El visitante ya se fue: no hay a quién avisar
+        }
       }
+    },
+    cancel() {
+      cancelado = true;
+      generador.return?.().catch(() => {});
     },
   });
 

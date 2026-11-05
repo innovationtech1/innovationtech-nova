@@ -178,9 +178,12 @@ Si el documento no existe, NOVA usa **Gemini**.
 
 ### Colección `limites`: control de abuso del chat
 Cuenta cuántos mensajes envió cada visitante hoy (por dirección IP anonimizada). Sirve para no agotar la cuota gratuita.
+- Límites: **6 mensajes por minuto** y **40 por día** por visitante; cada mensaje hasta 800 caracteres.
+- No se guarda la IP: se guarda una "huella" irreversible de la IP mezclada con la fecha (documento `AAAA-MM-DD_huella`).
+- Si Firestore falla, el límite se lleva en la memoria del servidor como respaldo.
 
 ### Seguridad de la base de datos
-Las reglas de Firestore **bloquean todo acceso directo desde el navegador**. Solo el servidor (con su credencial secreta) puede leer y escribir.
+Las reglas de Firestore **bloquean todo acceso directo desde el navegador**. Solo el servidor (con su credencial secreta) puede leer y escribir. Comprobado el 5 nov 2026: leer o escribir sin la credencial responde 403 (prohibido).
 
 ---
 
@@ -263,6 +266,7 @@ Se guardan en `.env.local` (en tu computadora) y en **Netlify → Site configura
 ---
 
 ## 12. Historial de cambios del documento
+- **2026-11-05:** preparación de la Fase 5: límite de mensajes en Firestore, tiempo total de respuesta de 48 s (Netlify corta a los 60 s), se detiene la IA si el visitante cierra el chat y la IP real se lee del encabezado de Netlify.
 - **2026-11-03:** primera versión. Cambio a stack 100% gratuito (Gemini + Firestore Spark + Netlify Free).
 - **2026-11-03:** se agrega la opción de cambiar NOVA a Claude desde el panel (de pago, crédito desde $5), con Gemini por defecto y respaldo automático a Gemini.
 - **2026-11-05:** Fase 4, parte 1: panel `/admin` con login, fichas y "Probar NOVA".

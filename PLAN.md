@@ -8,7 +8,8 @@
 > - Información del negocio (Fase 0): ✅ completa (pendiente: links de redes sociales).
 > - Fase 3: ✅ terminada y probada (5 nov 2026). 27 fichas en Firestore (proyecto `innovationtech-nova`, base `(default)`, Standard, nam5, plan Spark). Búsqueda con el **Plan B** (similitud calculada en el servidor, sin índice vectorial). Si Firestore falla, NOVA usa `datos/sitio.js`.
 > - Fase 4, parte 1: ✅ panel `/admin` (login con Firebase Auth, fichas: crear/editar/ocultar/borrar con buscador y filtro, "Probar NOVA"). Probado por API; falta que el dueño entre con su contraseña.
-> - Siguiente: Fase 4, parte 2 ("Configuración de NOVA": elegir Gemini o Claude, opcional y de pago).
+> - Fase 5: 🔄 en curso. Código listo para publicar (compila sin errores, límite de mensajes guardado en Firestore, respuestas que caben en los 60 s de Netlify). Reglas de Firestore comprobadas: bloquean todo acceso desde afuera. Falta crear la cuenta de Netlify y publicar.
+> - Después: Fase 4, parte 2 ("Configuración de NOVA": elegir Gemini o Claude, opcional y de pago).
 > Fecha: 4 de noviembre de 2026
 > Documentación técnica de la app: ver `DOCUMENTACION.md`.
 
@@ -167,7 +168,8 @@ Cada fase termina con algo que puedes **ver y probar**. No avanzamos sin tu apro
 ### Fase 5: Publicar gratis en Netlify
 - ✅ Código subido a GitHub (repositorio público; `.env.local` queda fuera).
 - Conectar GitHub con Netlify y copiar las claves en la configuración de Netlify.
-- Reglas de seguridad de Firestore: bloquear todo acceso directo desde el navegador.
+- ✅ Código preparado: compila sin errores (`npm run build`), el límite de mensajes se guarda en Firestore (en Netlify la memoria se borra), cada respuesta termina antes de 48 s (Netlify corta a los 60 s) y, si el visitante cierra el chat, Gemini deja de escribir para no gastar cuota.
+- ✅ Reglas de seguridad de Firestore comprobadas (5 nov 2026): leer y escribir desde afuera responde "403, prohibido".
 - Pruebas en varios celulares.
 - **Resultado:** tu página en internet, en `https://<nombre>.netlify.app`.
 
