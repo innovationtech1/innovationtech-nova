@@ -1,6 +1,6 @@
 import { responder, iaDisponible } from "@/lib/ia";
 import { instruccionesNova } from "@/lib/instrucciones";
-import { textoDelNegocio } from "@/lib/conocimiento";
+import { buscarInformacion } from "@/lib/buscar";
 import { revisarLimite, LIMITES } from "@/lib/limites";
 import { negocio } from "@/datos/sitio";
 
@@ -78,7 +78,19 @@ export async function POST(request) {
     return respuestaTexto(limite.motivo === "minuto" ? AVISOS.limiteMinuto : AVISOS.limiteDia, 429);
   }
 
-  const instrucciones = instruccionesNova(textoDelNegocio());
+  // Para buscar se usan las 2 últimas preguntas del visitante: así se entiende
+  // una pregunta corta como "¿y cuánto cuesta?" con el contexto de la anterior.
+  const consulta = historial
+    .filter((m) => m.rol === "usuario")
+    .slice(-2)
+    .map((m) => m.texto)
+    .join("\n");
+  const { informacion, fuente, fichasUsadas } = await buscarInformacion(consulta);
+  if (process.env.NODE_ENV !== "production") {
+    console.log(`[NOVA] Información de ${fuente}:`, fichasUsadas.map((f) => `${f.id} (${f.puntaje})`).join(", "));
+  }
+
+  const instrucciones = instruccionesNova(informacion);
   const generador = responder({ instrucciones, historial });
   const codificador = new TextEncoder();
 

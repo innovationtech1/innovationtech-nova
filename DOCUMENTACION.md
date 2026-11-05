@@ -100,6 +100,19 @@ La búsqueda de fichas (pasos 2 y 3) **siempre** usa Gemini Embedding, sin impor
 
 ---
 
+### 5.1 Cómo está hecha la búsqueda (Fase 3, "Plan B")
+- Las fichas viven en Firestore, colección `conocimiento` (proyecto `innovationtech-nova`, base `(default)`).
+- En cada pregunta, el servidor lee las fichas activas (las guarda en memoria 5 minutos para gastar menos lecturas), calcula la huella de la pregunta y compara. Usa las **6 fichas más parecidas** más la ficha de **contacto**.
+- No usa índice vectorial (habría que instalar `gcloud`). Con unas decenas de fichas es igual de rápido y cuesta $0.
+- **Red de seguridad:** si Firestore no responde, NOVA usa toda la información de `datos/sitio.js`.
+
+### 5.2 Cómo actualizar la información de NOVA (hasta que exista el panel)
+1. Cambia los textos o precios en `datos/sitio.js`.
+2. En una terminal dentro de `C:\innovationTECH1`, ejecuta `npm run cargar-fichas`.
+3. El programa recalcula las huellas y actualiza Firestore. Las fichas que ya no existan en `datos/sitio.js` se borran. NOVA usa los datos nuevos en máximo 5 minutos.
+
+---
+
 ## 6. Cómo funciona el panel de administrador
 
 ```
@@ -186,10 +199,11 @@ innovationTECH1/
 │   ├── ia.js                ← Elige la IA (Gemini o Claude) y hace el respaldo automático
 │   ├── gemini.js            ← Conexión a Gemini (chat y huellas)
 │   ├── claude.js            ← Conexión a Claude (opcional, de pago)
-│   ├── buscar.js            ← Búsqueda de fichas (RAG)
+│   ├── fichas.js            ← Convierte datos/sitio.js en fichas
+│   ├── buscar.js            ← Búsqueda de fichas (RAG, "Plan B")
 │   └── limites.js           ← Límite de mensajes por visitante
 ├── scripts/
-│   └── cargar-fichas.js     ← Carga inicial de la información del negocio
+│   └── cargar-fichas.mjs    ← Sube/actualiza las fichas en Firestore (npm run cargar-fichas)
 ├── public/                  ← Imágenes (logo, portafolio)
 ├── .env.local               ← CLAVES SECRETAS (nunca a GitHub)
 ├── .gitignore               ← Lista de archivos que NO se suben a GitHub
@@ -244,4 +258,5 @@ Se guardan en `.env.local` (en tu computadora) y en **Netlify → Site configura
 ## 12. Historial de cambios del documento
 - **2026-11-03:** primera versión. Cambio a stack 100% gratuito (Gemini + Firestore Spark + Netlify Free).
 - **2026-11-03:** se agrega la opción de cambiar NOVA a Claude desde el panel (de pago, crédito desde $5), con Gemini por defecto y respaldo automático a Gemini.
+- **2026-11-05:** Fase 3 terminada: 27 fichas en Firestore con huellas de `gemini-embedding-2` (768 números) y búsqueda "Plan B" en `lib/buscar.js`. Script `npm run cargar-fichas`. Portafolio con 3 trabajos reales.
 - **2026-11-04:** Fase 2 probada con la IA real. Datos de contacto reales en `datos/sitio.js`. Si un modelo de Gemini no empieza a responder en 15 segundos, NOVA prueba el siguiente modelo gratuito. Si ninguno responde, muestra el mensaje de contacto (el cliente nunca se queda esperando sin respuesta).
