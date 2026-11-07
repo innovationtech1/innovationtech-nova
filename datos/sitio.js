@@ -221,6 +221,91 @@ export const preguntasFrecuentes = [
   },
 ];
 
+// InnovationTECH Studio: la app propia de la agencia (documentación para NOVA, 7 nov 2026).
+// Solo lo que ya existe o ya está decidido. Los planes de pago están en preparación.
+export const studio = {
+  nombre: "InnovationTECH Studio",
+  enlace: "https://innovationtech-studio.netlify.app/",
+  queEs:
+    "App web de InnovationTECH para crear el contenido de marketing de un negocio con inteligencia artificial: textos para redes sociales, imágenes, reels y videos con música, todo desde el celular o la computadora. No hace falta saber diseño ni edición.",
+  paraQuien:
+    "Pequeños negocios y emprendedores que quieren publicar contenido profesional por su cuenta, rápido y sin contratar a un diseñador para cada publicación.",
+  comoSeUsa:
+    "Se abre desde el navegador y se puede instalar en el celular como una app (Android: Instalar app; iPhone: Compartir → Agregar a pantalla de inicio). Funciona en español y en inglés. En «Mi marca» se guardan el nombre, el giro, el público, el tono y los colores del negocio, y Studio los usa en todo lo que crea.",
+  herramientas: [
+    "Textos: publicaciones, anuncios, descripciones y guiones para Instagram, Facebook y TikTok",
+    "Asistente de marketing en forma de chat, al que se le pueden pedir cambios («más corto», «más formal», «dame 3 variantes») y hablar con el micrófono",
+    "Imágenes creadas con IA, editor de imágenes y quitar fondo",
+    "Plantillas, carrusel para Instagram y la misma imagen en todos los tamaños de redes sociales",
+    "Calendario de contenido de 30 días",
+    "Creador de reels con tus fotos, voz en off con IA y subtítulos automáticos",
+    "Editor de video con música, textos, stickers y efectos de sonido",
+    "Galería con todo lo creado",
+  ],
+  musica:
+    "Música gratis y libre de derechos para videos y reels: la app compone canciones nuevas con grabaciones reales de instrumentos (piano, guitarras, bajo, violines, trompetas, acordeón, batería y percusión latina) en más de 20 estilos, entre ellos Comercial, Elegante, Cumbia, Norteño, Épico y Corporativo; se ajusta sola a la duración del video y cada versión es distinta. También tiene una biblioteca de 24 canciones completas de dominio público (FreePD) y 17 efectos de sonido (whoosh, impacto, ding, caja registradora, entre otros). Todo se puede usar en anuncios, Instagram, TikTok, Facebook y YouTube sin pagar ni dar crédito.",
+  planes: {
+    estado:
+      "Los planes de pago de Studio están en preparación y todavía no se pueden contratar en línea. Quien quiera apartar su lugar o conocer la app puede escribirnos.",
+    basico: {
+      nombre: "Básico",
+      precio: "$19 al mes",
+      incluye: [
+        "Textos, asistente de IA, Mi marca, plantillas y galería",
+        "Imágenes con IA, editor de imágenes y quitar fondo",
+        "Calendario de 30 días, carrusel y todos los tamaños",
+        "Música compuesta, biblioteca de canciones y efectos de sonido",
+        "1 persona por negocio",
+        "Hasta 60 mensajes y textos y 20 imágenes al día",
+      ],
+    },
+    pro: {
+      nombre: "Pro",
+      precio: "$39 al mes",
+      incluye: [
+        "Todo lo del plan Básico",
+        "Creador de reels y editor de video",
+        "Voz en off con IA y subtítulos automáticos",
+        "Hasta 3 personas del mismo negocio",
+        "Hasta 200 mensajes y textos, 60 imágenes y 30 voces al día",
+      ],
+    },
+    detalles: [
+      "Al registrarse se puede usar el plan Pro durante 10 minutos para conocer la app; después hay que contratar un plan para seguir.",
+      "Se podrá pagar con tarjeta (cobro automático cada mes) o en efectivo o por Zelle, en cuyo caso InnovationTECH activa la cuenta al confirmar el pago.",
+      "Si se cancela o el pago no pasa, la cuenta queda en pausa de inmediato; no se borra nada (marca, galería y contenido) y se reactiva al pagar.",
+      "Quien conecte su propia cuenta de IA puede usar Studio sin los límites diarios, pero igual necesita un plan.",
+      "Los precios y lo que incluye cada plan pueden cambiar antes del lanzamiento.",
+    ],
+  },
+  preguntas: [
+    {
+      p: "¿Necesito saber diseño o edición de video para usar Studio?",
+      r: "No. Studio está pensado para dueños de negocio: escribes lo que quieres (o lo dices con el micrófono) y la app te propone el texto, la imagen o el video. Luego puedes ajustarlo con un toque.",
+    },
+    {
+      p: "¿Studio funciona en el celular?",
+      r: "Sí. Funciona en el navegador del celular y de la computadora, y se puede instalar en el celular como una app, sin tienda de aplicaciones.",
+    },
+    {
+      p: "¿La música de Studio tiene derechos de autor?",
+      r: "No. La música que compone la app es nueva y libre de derechos, y las canciones de la biblioteca son de dominio público. Puedes usarlas en anuncios, Instagram, TikTok, Facebook y YouTube sin pagar ni dar crédito.",
+    },
+    {
+      p: "¿Cuál es la diferencia entre Studio y contratar un plan de la agencia?",
+      r: "Con Studio tú mismo creas tu contenido con ayuda de la IA, por una mensualidad baja. Con un plan de la agencia (Básico, Profesional o Premium), el equipo de InnovationTECH hace la estrategia, crea el contenido y maneja tus redes por ti.",
+    },
+    {
+      p: "¿Puedo hacer videos con inteligencia artificial en Studio?",
+      r: "Studio incluye reels con tus fotos, voz en off y subtítulos en el plan Pro. Además existe la opción de video generado por IA con Replicate, que es de pago aparte y requiere conectar tu propia cuenta de Replicate.",
+    },
+    {
+      p: "¿Cuándo puedo contratar Studio?",
+      r: "Los planes Básico ($19 al mes) y Pro ($39 al mes) están en preparación. Escríbenos para apartar tu lugar y te avisamos en cuanto estén disponibles.",
+    },
+  ],
+};
+
 // Personalidad de NOVA (propuesta el 4 nov 2026)
 export const personalidadNova = {
   trato: "Habla de \"tú\", con un tono cercano, profesional y positivo.",
