@@ -9,6 +9,8 @@
 > - Fase 3: ✅ terminada y probada (5 nov 2026). 27 fichas en Firestore (proyecto `innovationtech-nova`, base `(default)`, Standard, nam5, plan Spark). Búsqueda con el **Plan B** (similitud calculada en el servidor, sin índice vectorial). Si Firestore falla, NOVA usa `datos/sitio.js`.
 > - Fase 4, parte 1: ✅ panel `/admin` (login con Firebase Auth, fichas: crear/editar/ocultar/borrar con buscador y filtro, "Probar NOVA"). Probado por API; falta que el dueño entre con su contraseña.
 > - Fase 5: 🔄 en curso. Código listo para publicar (compila sin errores, límite de mensajes guardado en Firestore, respuestas que caben en los 60 s de Netlify). Reglas de Firestore comprobadas: bloquean todo acceso desde afuera. Falta crear la cuenta de Netlify y publicar.
+> - Fase 5: publicada en Netlify (7 nov 2026), con las claves del servidor y `SECRETS_SCAN_OMIT_KEYS` para los valores que no son secretos (`GEMINI_MODEL`, `NEXT_PUBLIC_FIREBASE_API_KEY`, `FIREBASE_PROJECT_ID`, `ADMIN_EMAILS`).
+> - Conocimiento de **InnovationTECH Studio** (7 nov 2026): sección `studio` en `datos/sitio.js`, que genera 12 fichas (qué es, herramientas, música, planes Básico $19 y Pro $39 «próximamente» y preguntas frecuentes). Para cargarlas: `npm run cargar-fichas`.
 > - Después: Fase 4, parte 2 ("Configuración de NOVA": elegir Gemini o Claude, opcional y de pago).
 > Fecha: 4 de noviembre de 2026
 > Documentación técnica de la app: ver `DOCUMENTACION.md`.
