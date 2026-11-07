@@ -243,7 +243,7 @@ export const portafolio = [
     descripcion:
       "Aplicación web propia que crea textos, imágenes y videos de marketing con inteligencia artificial: publicaciones, calendario de contenido de 30 días y guiones para reels. Funciona desde el celular y se instala como app.",
     imagen: "/portafolio/innovationtech-studio.jpg",
-    enlace: "https://innovationtech-studio.vercel.app/",
+    enlace: "https://innovationtech-studio.netlify.app/",
   },
   {
     id: "tortas-tortuga",
