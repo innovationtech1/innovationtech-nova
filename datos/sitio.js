@@ -256,7 +256,7 @@ export const studio = {
         "Calendario de 30 días, carrusel y todos los tamaños",
         "Música compuesta, biblioteca de canciones y efectos de sonido",
         "1 persona por negocio",
-        "Hasta 60 mensajes y textos y 20 imágenes al día",
+        "Cada mes: 1,000 mensajes y textos y 300 imágenes (se reinicia el día 1)",
       ],
     },
     pro: {
@@ -267,17 +267,37 @@ export const studio = {
         "Creador de reels y editor de video",
         "Voz en off con IA y subtítulos automáticos",
         "Hasta 3 personas del mismo negocio",
-        "Hasta 200 mensajes y textos, 60 imágenes y 30 voces al día",
+        "Cada mes: 3,000 mensajes y textos, 1,000 imágenes, 250 voces y 250 subtítulos (se reinicia el día 1)",
       ],
     },
     detalles: [
       "Al registrarse se puede usar el plan Pro durante 10 minutos para conocer la app; después hay que contratar un plan para seguir.",
-      "Se podrá pagar con tarjeta (cobro automático cada mes) o en efectivo, por Zelle o por Cash App, en cuyo caso InnovationTECH activa la cuenta al confirmar el pago.",
+      "Lo incluido en cada plan se cuenta por mes y se reinicia el día 1 de cada mes. Si se acaba antes, se puede comprar un paquete extra.",
       "Si se cancela o el pago no pasa, la cuenta queda en pausa de inmediato; no se borra nada (marca, galería y contenido) y se reactiva al pagar.",
-      "Quien conecte su propia cuenta de IA puede usar Studio sin los límites diarios, pero igual necesita un plan.",
+      "Quien conecte su propia cuenta de IA (Cloudflare) puede usar Studio sin los límites del mes, pero igual necesita un plan.",
       "Los precios y lo que incluye cada plan pueden cambiar antes del lanzamiento.",
     ],
   },
+  // Paquetes extra: pago único, el saldo no vence
+  paquetes: {
+    lista: [
+      "Paquete Creativo: +500 mensajes y textos y +150 imágenes por $5 (planes Básico y Pro)",
+      "Paquete Voz: +100 voces y +100 subtítulos por $9 (solo plan Pro)",
+    ],
+    detalles: [
+      "Se pagan una sola vez, no son una suscripción.",
+      "Lo que sobra de un paquete no vence: se guarda hasta que se use.",
+      "Primero se usa lo incluido en el plan del mes y después el paquete.",
+      "Solo el dueño de la cuenta puede comprar paquetes, desde Mi cuenta → Paquetes extra; todo su equipo los usa.",
+      "Si la cuenta está en pausa, el saldo se guarda pero no se puede usar hasta reactivarla.",
+    ],
+  },
+  // Formas de pago de la app (distintas de las de los servicios de la agencia)
+  pagos: [
+    "Con tarjeta de crédito o débito: cobro automático cada mes por Stripe. Desde Mi cuenta → Administrar suscripción se cambia la tarjeta, se cambia de plan o se cancela.",
+    "A mano: en efectivo, por Zelle o por Cash App. InnovationTECH activa la cuenta al confirmar el pago, por el tiempo pagado.",
+    "Los paquetes extra se pagan con tarjeta desde la app, o a mano (efectivo, Zelle o Cash App) y InnovationTECH los agrega a la cuenta.",
+  ],
   preguntas: [
     {
       p: "¿Necesito saber diseño o edición de video para usar Studio?",
@@ -302,6 +322,10 @@ export const studio = {
     {
       p: "¿Cuándo puedo contratar Studio?",
       r: "Los planes Básico ($19 al mes) y Pro ($39 al mes) están en preparación. Escríbenos para apartar tu lugar y te avisamos en cuanto estén disponibles.",
+    },
+    {
+      p: "¿Qué pasa si se me acaba lo incluido en mi plan de Studio antes de fin de mes?",
+      r: "Puedes comprar un paquete extra desde Mi cuenta → Paquetes extra: el Creativo (+500 textos y +150 imágenes por $5) o, en el plan Pro, el de Voz (+100 voces y +100 subtítulos por $9). Lo que sobre no vence. Si prefieres, espera al día 1, cuando se reinicia lo incluido en tu plan.",
     },
   ],
 };
