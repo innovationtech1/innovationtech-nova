@@ -272,7 +272,7 @@ export const studio = {
     },
     detalles: [
       "Al registrarse se puede usar el plan Pro durante 10 minutos para conocer la app; después hay que contratar un plan para seguir.",
-      "Se podrá pagar con tarjeta (cobro automático cada mes) o en efectivo o por Zelle, en cuyo caso InnovationTECH activa la cuenta al confirmar el pago.",
+      "Se podrá pagar con tarjeta (cobro automático cada mes) o en efectivo, por Zelle o por Cash App, en cuyo caso InnovationTECH activa la cuenta al confirmar el pago.",
       "Si se cancela o el pago no pasa, la cuenta queda en pausa de inmediato; no se borra nada (marca, galería y contenido) y se reactiva al pagar.",
       "Quien conecte su propia cuenta de IA puede usar Studio sin los límites diarios, pero igual necesita un plan.",
       "Los precios y lo que incluye cada plan pueden cambiar antes del lanzamiento.",
