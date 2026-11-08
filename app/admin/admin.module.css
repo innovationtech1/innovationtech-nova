@@ -309,3 +309,20 @@ button:disabled {
   display: grid;
   gap: 4px;
 }
+
+.enlace {
+  background: none;
+  border: none;
+  color: inherit;
+  opacity: 0.8;
+  text-decoration: underline;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 8px 0 0;
+  align-self: center;
+}
+
+.enlace:hover {
+  opacity: 1;
+}

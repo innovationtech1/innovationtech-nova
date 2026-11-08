@@ -5,6 +5,7 @@ import {
   panelConfigurado,
   sesionActual,
   iniciarSesion,
+  enviarRestablecer,
   cerrarSesion,
   pedirAdmin,
 } from "@/lib/sesionAdmin";
@@ -59,12 +60,19 @@ function Login({ alEntrar }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [cargando, setCargando] = useState(false);
+  const [olvide, setOlvide] = useState(false);
+  const [aviso, setAviso] = useState("");
 
   async function enviar(e) {
     e.preventDefault();
     setError("");
+    setAviso("");
     setCargando(true);
     try {
+      if (olvide) {
+        setAviso(await enviarRestablecer(email.trim()));
+        return;
+      }
       alEntrar(await iniciarSesion(email.trim(), password));
     } catch (err) {
       setError(err.message);
@@ -84,20 +92,34 @@ function Login({ alEntrar }) {
           Correo
           <input type="email" autoComplete="username" required value={email} onChange={(e) => setEmail(e.target.value)} />
         </label>
-        <label className={estilos.campo}>
-          Contraseña
-          <input
-            type="password"
-            autoComplete="current-password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
+        {!olvide && (
+          <label className={estilos.campo}>
+            Contraseña
+            <input
+              type="password"
+              autoComplete="current-password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+        )}
 
         {error && <p className={estilos.error} role="alert">{error}</p>}
+        {aviso && <p className={estilos.exito} role="status">{aviso}</p>}
         <button className="boton boton-primario" disabled={cargando}>
-          {cargando ? "Entrando…" : "Entrar"}
+          {olvide ? (cargando ? "Enviando…" : "Enviar enlace") : cargando ? "Entrando…" : "Entrar"}
+        </button>
+        <button
+          type="button"
+          className={estilos.enlace}
+          onClick={() => {
+            setOlvide(!olvide);
+            setError("");
+            setAviso("");
+          }}
+        >
+          {olvide ? "Volver a entrar" : "¿Olvidaste tu contraseña?"}
         </button>
       </form>
     </main>

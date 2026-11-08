@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "cargar-fichas": "node --conditions=react-server --env-file=.env.local --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/cargar-fichas.mjs"
+    "cargar-fichas": "node --conditions=react-server --env-file=.env.local --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/cargar-fichas.mjs",
+    "test": "node --test --disable-warning=MODULE_TYPELESS_PACKAGE_JSON pruebas/*.test.mjs"
   },
   "dependencies": {
     "@google/genai": "2.32.0",
